@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<script src = "js/angular.js"></script>
+		<script src = "js/app.js"></script>
+		<meta charset = "UTF-8" name = "viewport" content = "width=device-width, initial-scale=1" />
+		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css"/>
+		<link rel = "stylesheet" type = "text/css" href = "css/style.css"/>
+        <!-- font awesome cdn link  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- custom css file link  -->
+        <link rel="stylesheet" href="css/style.css">
+        <!--Modal link-->
+        <script src="href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+<body ng-app = "myModule" ng-controller = "myController">
+<!--Menu Start-->
+<header>
+    <div id="menu-bar" class="fas fa-bars"></div>
+    <b><a href="#" class="logo"> S H O P P I N G</b></a>
+    <nav class="navbar">
+        <b><a href="#home">HOME</b></a>
+        <b><a href="#products">PRODUCTS</b></a> 
+        <b><a href="#add_cart">CART</b></a>
+        <b><a href="#review">REVIEW</b></a>
+    </nav>
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+</header>
+<!--Menu end-->
+<!--Home Start-->
+<section class="home" id="home">
+    <div class="slide-container active">
+        <div class="slide">
+            <div class="content">
+                <span>Laptop</span>
+                <h3>Laptop</h3>
+                <p>A laptop, laptop computer, or notebook computer is a small, portable personal computer with a screen and alphanumeric keyboard. Laptops are folded shut for transportation, and thus are suitable for mobile use</p>
+                <div class="price">₱25,000.00 <span>30,000.00</span></div>
+                <!--<a href="#" class="btn">add to cart</a>-->
+            </div>
+            <div class="image">
+                <img src="images/Laptop.png" class="shoe" alt="">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <div class="content">
+                <span>nike blue shoes</span>
+                <h3>Nike shoes</h3>
+                <p>This shoes are Nike product. The Nike shoes is for a wide variety of sports, Nike Brand product offerings in categories such as Running, Basketball, the Jordan Brand, Football, golf, soccer, snowboarding, hockey, tennis and volleyball.</p>
+                <div class="price">₱1,500.00 <span>2,000.00</span></div>
+                <!--<a href="#" class="btn">add to cart</a>-->
+            </div>
+            <div class="image">
+                <img src="images/nikeshoes.png" class="shoe" alt="">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <div class="content">
+                <span>Television</span>
+                <h3>Television</h3>
+                <p>TV is an electronic system of transmitting transient images of fixed or moving objects together with sound over a wire or through space by apparatus that converts light and sound into electrical waves light rays and audible sound.</p>
+                <div class="price">₱35,000.00 <span>40,000.00</span></div>
+                <!--<a href="#" class="btn">add to cart</a>-->
+            </div>
+            <div class="image">
+                <img src="images/tv.png" class="shoe" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <div class="content">
+                <span> Phone</span>
+                <h3>Samsung Cellphone</h3>
+                <p>Samsung specializes in the production of a wide variety of consumer and industry electronics, including appliances, digital media devices, semiconductors, memory chips, and integrated systems. </p>
+                <div class="price">₱10,000.00 <span>12,500.00</span></div>
+                <!--<a href="#" class="btn">add to cart</a>-->
+            </div>
+            <div class="image">
+                <img src="images/cellphone.jpg" class="shoe" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
+    <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+</section>
+<!--Home end-->
+<!-- service section starts  -->
+
+<section class="service">
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>fast delivery</h3>
+            <p></p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-undo"></i>
+            <h3>10 days replacements</h3>
+            <p></p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-headset"></i>
+            <h3>24 x 7 support</h3>
+            <p></p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- service section ends -->
+
+
+
+<!--Product Start-->
+<section class="products" id="products">
+    <h1 class="heading"><span>Products</span> </h1>
+    <div class="box-container">
+	    <div id = "p_list" ng-repeat = "product in products ">
+			<h5>{{product.p_name}}</h5>
+			<center><img ng-src = "{{product.p_image}}"/></center>
+			<div><label>Price: ₱{{product.p_price}}</label></div>
+            <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+			<center><button type = "button" ng-click = "add_cart(product)" class = "btn btn-danger"><span class = "glyphicon glyphicon-shopping-cart">      
+            </span> Add to cart</button></center>
+			</div>
+		</div>
+	  </div>
+   </div>
+</section>
+<!--Product end-->
+<section class="cart" id="add_cart">
+    <h1 class="heading"> Add to <span>Cart</span> </h1>
+    <div class = "panel-body table-responsive">
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat = "cart in carts" ng-init = "setTotals(cart)">
+                        <td>{{cart.p_name}}</td>
+                        <td>₱{{cart.p_price}}</td>
+                        <td><button type = "button" ng-click = "remove_cart(cart)" class = "btn btn-danger"><span class = "glyphicon glyphicon-trash"></span></button></td>
+                        </tr>
+                        <tr>
+                           <td align = "right">Total</td>
+                           <td>₱{{total}}</td>
+                        </tr>
+                        <!--<tr>
+                            <td align="left"><button type="button" ng-click = "buy_cart(cart)" class="btn btn-danger"><span class="glyphicon glyphicon-shopping-cart"></span><span> Buy Now</span></button></td>
+                        </tr><-->
+                    </tbody>
+             </table>
+         </div>
+
+         <div class="container">
+                 <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-shopping-cart"></span> Buy Now</button>
+                 <div class="modal fade" id="myModal" role="dialog">
+                 <div class="modal-dialog">
+                 <div class="modal-content">
+                 <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 <h4 class="modal-title">Shopping</h4>
+            </div>
+                <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone No.</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+           <button type="submit" class="btn btn-primary"> Submit</button>     
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="review" id="review">
+
+    <h1 class="heading"> customer's <span>review</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="images/Limon.png" alt="">
+            <h3>John Patrick Limon</h3>
+            <p>Hi, Sir I receive my order yesterday, I have to tell you that I am impressed by your promptness and efficiency in handling everything. I look forward to using your services again whenever I need them.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="images/bea.png" alt="">
+            <h3>Bea Bianca Quinia</h3>
+            <p>Good day Sir, I received my order. I like you to know that I am very happy with it! It does exactly as you promised. Thank you very much for your service!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="images/darcy.png" alt="">
+            <h3>Darrilyn Villaluna</h3>
+            <p>Got it. Excellent job of packing! Everything works perfectly and I am very impressed with the product that I purchased from your company.Thanks!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+    <div class="box">
+            <img src="images/cahayon.png" alt="">
+            <h3>Christine Mae Cahayon</h3>
+            <p>Hi, Sir I receive my order yesterday, I have to tell you that I am impressed by your promptness and efficiency in handling everything. I look forward to using your services again whenever I need them.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+    <div class="box">
+            <img src="images/zaidee.png" alt="">
+            <h3>Zaidee Mendoza</h3>
+            <p>I Got my order now. Excellent job of packing! Everything works perfectly and I am very impressed with the product that I purchased from your company.Thanks!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+    <div class="box">
+            <img src="images/jericho.png" alt="">
+            <h3>Jericho Delos Santos</h3>
+            <p>Good day Sir, I received my order. I like you to know that I am very happy with it! It does exactly as you promised. Thank you very much for your service!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+</section>
+
+<script src="js/script.js"></script>
+
+</body>	
+</html>
